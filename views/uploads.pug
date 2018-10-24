@@ -1,0 +1,12 @@
+//- (`<h1>Congratulations</h1>
+//-     <a href="/">Click here to go back!</a>
+//-     <img src="uploads/${request.file.filename}">`);
+html
+    head
+    link(rel="stylesheet" href="styles.css")
+
+    h1="Polling for Updates"
+
+    img(src="uploads/" + image)
+
+    a(href="/")="Go Back Here"

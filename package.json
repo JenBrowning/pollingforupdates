@@ -1,0 +1,25 @@
+{
+  "name": "pollingforupdates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iam2anangel/pollingforupdates.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iam2anangel/pollingforupdates/issues"
+  },
+  "homepage": "https://github.com/iam2anangel/pollingforupdates#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "file-system": "^2.2.2",
+    "multer": "^1.4.1",
+    "pug": "^2.0.3"
+  }
+}
