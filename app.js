@@ -7,6 +7,7 @@ const uploadPath = "public/uploads/";
 const port = 3000;
 const app = express();
 app.use(express.static(publicPath));
+app.use(express.json());
 const upload = multer({dest: uploadPath}) 
 
 app.set("views", "./views" )
@@ -44,14 +45,22 @@ app.get('/', (request, response) => {
 })
 
 
-app.post('/latest', (respond, request) => {
+app.post('/latest', (request, response) => {
     console.log("Uploaded: " );
+    const arrayOfImages = [];
     fs.readdir(uploadPath, (err, items) => {
-        let imageInfo = {
-            timestamp: Date.now(),
-            image: uploadedFiles
-        }
-        response.image(imageInfo)
+        let highestTimeStamp = 0;
+        items.forEach(item => {
+            var modified = fs.statSync("public/uploads/" + item).mtimeMs;
+            console.log(modified)
+            if(modified > request.body.after) {
+                arrayOfImages.push("uploads/" + item);
+            }
+            if(modified > highestTimeStamp) {
+                highestTimeStamp = modified;
+            }
+        })
+        response.send({images: arrayOfImages, timestamp: highestTimeStamp})
     })
 })
 

@@ -4,13 +4,15 @@ html
 
     h1="Polling for Updates"
 
+    
     form(action="/uploads" method="POST" enctype="multipart/form-data")
         input(type="file" name="myFile" id="myFile")
 
         button(type="submit")="Submit"
     
-    each val in items
-        img(src="uploads/" + val)
+    div(id="imagesContainer")
+        each val in items
+            img(src="uploads/" + val)
 
     script(src="index.js")
 
